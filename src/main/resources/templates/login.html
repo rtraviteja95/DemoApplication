@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Login</title>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<style type="text/css">
+.form-heading {
+	color: #000;
+	font-size: 23px;
+}
+
+.panel h2 {
+	color: #444444;
+	font-size: 18px;
+	margin: 0 0 8px 0;
+}
+
+.panel p {
+	color: #777777;
+	font-size: 14px;
+	margin-bottom: 30px;
+	line-height: 24px;
+}
+
+.login-form .form-control {
+	border: 1px solid #d4d4d4;
+	border-radius: 4px;
+	font-size: 14px;
+	height: 50px;
+	line-height: 50px;
+}
+
+.main-div {
+	background: #C0C0C0;
+	border-radius: 10px;
+	margin: 10px auto 30px;
+	max-width: 38%;
+	padding: 50px 70px 70px 71px;
+}
+
+.login-form .form-group {
+	margin-bottom: 10px;
+}
+
+.login-form {
+	text-align: center;
+}
+</style>
+
+</head>
+<body>
+	<div class="container">
+		<div class="login-form">
+			<h1 class="form-heading">Login</h1>
+			<div class="main-div">
+				<form th:action="@{/login}" method="post" class="form-group">
+					<div th:if="${param.error}">
+						<div class="alert alert-danger">Invalid username or
+							password.</div>
+					</div>
+					<div th:if="${param.logout}">
+						<div class="alert alert-info">You have been logged out.</div>
+					</div>
+					<div class="form-group"><input type="text"
+							id="username" name="username" class="form-control"
+							autofocus="autofocus" placeholder="Username">
+					</div>
+					<div class="form-group"><input type="password"
+							id="password" name="password" class="form-control"
+							placeholder="Password">
+					</div>
+					<div class="form-group">
+						<div class="row">
+							<div class="col-sm-6 col-sm-offset-3">
+								<input type="submit" name="login-submit" id="login-submit"
+									class="btn btn-primary" value="Log In">
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

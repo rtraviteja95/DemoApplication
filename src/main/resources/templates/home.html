@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Home</title>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<link rel="stylesheet" href="/css/main.css" />
+</head>
+<body onload="loadFilesIntoTable()">
+
+	<script src="./js/home.js"></script>
+	<br/>
+	<div class="container">
+		<div>
+			<button class="btn btn-danger" style="float: right;">
+				<a th:href="@{/logout}" style="color: #FFFFFF;">Sign Out</a>
+			</button>
+		</div>
+		<div class="upload-form">
+			<div class="main-div">
+				<form enctype="multipart/form-data" method="post">
+					<div>
+						<div class="alert alert-danger" id="error"
+							style="display: none;"></div>
+					</div>
+					<div class="form-group">
+						<input type="file" id="file" name="file" class="form-control"
+							autofocus="autofocus" required>
+					</div>
+					<div class="form-group">
+						<div class="row">
+							<div class="col-sm-6 col-sm-offset-3">
+								<input type="button" onclick="uploadFile()" name="login-submit"
+									id="login-submit" class="btn btn-primary" value="Upload">
+								<!-- <input type="submit" name="login-submit" id="login-submit"
+									class="btn btn-primary" value="Upload"> -->
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<br/>
+	<br/>
+	<br/>
+	<div class="container">
+		<p id="errorList" class="alert alert-danger"></p>
+		<h2>Existing Files</h2>
+		<table class="table table-bordered">
+			<thead>
+				<tr>
+					<th>File Name</th>
+					<th>Uploaded Date</th>
+					<th>Action</th>
+				</tr>
+			</thead>
+			<tbody id="fileDataBody"></tbody>
+		</table>
+	</div>
+
+</body>
+</html>
